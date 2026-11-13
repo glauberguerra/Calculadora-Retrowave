@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+body {
+  background: url('GIF-RETRO.gif') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  overflow: hidden;
+}
+
+.calculadora {
+   width: 250px; /* menor tamanho */
+  margin: 80px 0 0 60px; /* joga ela um pouco pra esquerda */
+  background: rgba(20, 20, 50, 0.4); /* fundo escuro e transparente */
+  border: 2px solid rgba(255, 0, 255, 0.4); /* contorno neon sutil */
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.3); /* glow roxo neon */
+  padding: 20px;
+  backdrop-filter: blur(8px); /* efeito vidro */
+  -webkit-backdrop-filter: blur(8px); /* suporte safari */
+  z-index: 1;
+}
+
+.visor {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #39ff14; /* verde limão estilo terminal */
+  text-align: right;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #39ff14;
+  backdrop-filter: blur(4px);
+}
+
+.botoes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  padding: 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background: #ff00c8;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 4px 10px rgba(255, 0, 200, 0.4);
+}
+
+.btn:hover {
+  background: #d600b5;
+}
+
+.igual {
+  grid-row: span 2;
+  background: #39ff14;
+  color: #000;
+  font-size: 24px;
+}
+
+.zero {
+  grid-column: span 2;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.7;
+  }
+}
+
+.visor {
+  animation: flicker 2s infinite;
+}
+
+
+@keyframes pulse-green {
+  0%, 100% {
+    box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14;
+  }
+  50% {
+    box-shadow: 0 0 20px #39ff14, 0 0 30px #39ff14, 0 0 40px #39ff14;
+  }
+}
+
+.igual {
+  animation: pulse-green 1.8s infinite alternate;
+}
+
+
+#mensagemTotal {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  text-align: right;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+#mensagemTotal.ativo {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#mensagemTotal .textoTotal {
+  font-size: 64px;
+  font-family: 'Press Start 2P', cursive, monospace;
+  color: #ff00ff;
+  text-shadow:
+    0 0 10px #ff00ff,
+    0 0 20px #ff00ff,
+    0 0 40px #ff00ff;
+}
+
+#mensagemTotal .resultadoFinal {
+  font-size: 48px;
+  font-family: 'Press Start 2P', cursive, monospace;
+  color: #00ffff;
+  text-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 40px #00ffff;
+  margin-top: 20px;
+}
+
+.audio-controls {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid #ff00ff;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+}
+
+#audio-controls button,
+#audio-controls input {
+  cursor: pointer;
+}
+
+#audio-controls button {
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  color: #ff00ff;
+  text-shadow: 0 0 10px #ff00ff;
+}
+
+#volumeSlider {
+  width: 100px;
+  accent-color: #39ff14;
+  background: transparent;
+}
+
+/* Mensagem START estilo arcade */
+#startMessage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 72px;
+  color: #00ffff;
+  text-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 30px #00ffff;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  z-index: 9999;
+  pointer-events: none;
+  animation: blinkStart 1s infinite;
+}
+
+@keyframes blinkStart {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+

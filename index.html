@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculadora Retrowave</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="calculadora">
+    <div class="visor" id="visor">0</div>
+    <div class="botoes">
+      <button class="btn" onclick="limpar()">C</button>
+      <button class="btn" onclick="adicionar('/')">/</button>
+      <button class="btn" onclick="adicionar('*')">*</button>
+      <button class="btn" onclick="remover()">←</button>
+
+      <button class="btn" onclick="adicionar('7')">7</button>
+      <button class="btn" onclick="adicionar('8')">8</button>
+      <button class="btn" onclick="adicionar('9')">9</button>
+      <button class="btn" onclick="adicionar('-')">-</button>
+
+      <button class="btn" onclick="adicionar('4')">4</button>
+      <button class="btn" onclick="adicionar('5')">5</button>
+      <button class="btn" onclick="adicionar('6')">6</button>
+      <button class="btn" onclick="adicionar('+')">+</button>
+
+      <button class="btn" onclick="adicionar('1')">1</button>
+      <button class="btn" onclick="adicionar('2')">2</button>
+      <button class="btn" onclick="adicionar('3')">3</button>
+      <button class="btn igual" onclick="calcular()">=</button>
+
+      <button class="btn zero" onclick="adicionar('0')">0</button>
+      <button class="btn" onclick="adicionar('.')">.</button>
+    </div>
+  </div>
+
+  <!-- BOTÃO DE MUTE E VOLUME -->
+<div class="audio-controls">
+  <button id="muteButton">🔊</button>
+  <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+</div>
+
+<!-- MENSAGEM START -->
+<div id="startMessage">START</div>
+
+
+  <!-- MENSAGEM FORA DA CALCULADORA -->
+  <div id="mensagemTotal">
+    <div class="textoTotal">TOTAL POINTS</div>
+    <div class="resultadoFinal" id="resultadoFinal"></div>
+  </div>
+
+  <audio id="musicaFundo" src="home-resonance.mp3" autoplay loop></audio>
+  <audio id="somClique" src="clique-arcade.mp3.wav" preload="auto"></audio>
+  <script src="script.js"></script>
+  
+</body>
+</html>
